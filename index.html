@@ -1,176 +1,189 @@
 <!DOCTYPE html>
-
 <html lang="pt-br">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>Ely SolarHub Ltda — Gestão de Participação em Geração Compartilhada (SCEE)</title>
-<meta content="Serviços de gestão regulatória e operacional da participação em geração compartilhada (SCEE). Remuneração por success fee: percentual sobre a economia apurada na fatura." name="description"/>
-<link href="assets/styles.css" rel="stylesheet"/>
-<link href="assets/logo.svg" rel="icon" type="image/svg+xml"/>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ely SolarHub Ltda — Gestão de Participação em Geração Compartilhada (SCEE)</title>
+  <meta name="description" content="Serviços de gestão regulatória e operacional da participação em geração compartilhada (SCEE). Remuneração por success fee: percentual sobre a economia apurada na fatura.">
+  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
 </head>
 <body class="light">
-<header class="site-header">
-<div class="container nav">
-<a aria-label="Página inicial Ely SolarHub" class="brand" href="#">
-<img alt="Logo Ely SolarHub" class="logo" src="assets/logo.svg"/>
-</a>
-<nav class="menu">
-<a href="#como-funciona">Como funciona</a>
-<a href="#remuneracao">Remuneração</a>
-<a href="#legal">Base Legal</a>
-<a href="#faq">FAQ</a>
-<a class="btn" href="#contato">Solicitar proposta</a>
-</nav>
-</div>
-</header>
-<section class="hero">
-<div class="container hero-content">
-<div class="hero-text">
-<h1>Gestão de participação em geração compartilhada (SCEE)</h1>
-<p>Operamos a sua participação em projetos de geração compartilhada, de forma regulatória e transparente. <strong>Sem venda de energia</strong>: a energia continua sendo fornecida pela <strong>distribuidora</strong>. Nossa remuneração é <strong>success fee</strong>, baseada na economia efetiva da sua fatura.</p>
-<div class="cta">
-<a class="btn btn-primary" href="#contato">Solicitar proposta</a>
-<a class="btn btn-outline" href="#remuneracao">Entender o success fee</a>
-</div>
-</div>
-<div class="hero-art">
-<div class="card">
-<h3>Estimativa ilustrativa</h3>
-<form class="form-grid" id="quickForm" novalidate="">
-<label for="consumo">Consumo médio (kWh/mês)</label>
-<input id="consumo" min="50" name="consumo" placeholder="Ex.: 350" required="" type="number" value="350"/>
-<label for="percentual">Percentual de success fee (%)</label>
-<input id="percentual" max="100" min="1" name="percentual" placeholder="Ex.: 20" required="" type="number" value="20"/>
-<button class="btn btn-primary" type="submit">Calcular</button>
-<p aria-live="polite" class="muted" id="resultado"></p>
-<p class="muted">*Valores ilustrativos. A apuração real segue VRSC e VEF da fatura da distribuidora (SCEE).</p>
-</form>
-</div>
-</div>
-</div>
-</section>
-<section class="section" id="como-funciona">
-<div class="container">
-<h2>Como funciona</h2>
-<div class="steps">
-<article>
-<h3>1. Participação no SCEE</h3>
-<p>Você ingressa em arranjo de geração compartilhada dentro da área da sua distribuidora.</p>
-</article>
-<article>
-<h3>2. Créditos na fatura</h3>
-<p>A distribuidora compensa créditos de energia na sua fatura, conforme regras do SCEE.</p>
-</article>
-<article>
-<h3>3. Apuração oficial</h3>
-<p>Comparamos a fatura do ciclo com o <strong>VRSC</strong> (sem compensação) e o <strong>VEF</strong> (após compensação).</p>
-</article>
-<article>
-<h3>4. Success fee</h3>
-<p>Você paga um <strong>percentual da economia</strong> apurada (<strong>Economia = VRSC – VEF</strong>, quando positiva).</p>
-</article>
-</div>
-</div>
-</section>
-<section class="section alt" id="remuneracao">
-<div class="container">
-<h2>Remuneração baseada na economia (Success Fee)</h2>
-<div class="grid-2">
-<div>
-<h3>Metodologia</h3>
-<ul>
-<li><strong>VRSC</strong>: valor estimado da fatura sem compensação (mesmo ciclo).</li>
-<li><strong>VEF</strong>: valor efetivamente faturado após compensação.</li>
-<li><strong>Economia Financeira = VRSC – VEF</strong> (quando positiva).</li>
-</ul>
-<p>Base documental: <strong>fatura emitida pela distribuidora</strong>. Em caso de divergência, conferência conjunta com documentos oficiais.</p>
-</div>
-<div>
-<h3>Transparência e natureza do serviço</h3>
-<p>A remuneração possui natureza exclusiva de <strong>prestação de serviços</strong>. Não se vincula a kWh, não representa preço de energia e não configura comercialização elétrica.</p>
-</div>
-</div>
-</div>
-</section>
-<section class="section" id="legal">
-<div class="container">
-<h2>Base legal e conformidade</h2>
-<p>Atuamos conforme a <strong>Lei nº 14.300/2022</strong> (Marco Legal da Micro e Minigeração Distribuída) e as <strong>Regras da ANEEL (REN nº 1.000/2021)</strong>, no âmbito do <strong>Sistema de Compensação de Energia Elétrica (SCEE)</strong>. Condições variam por distribuidora.</p>
-</div>
-</section>
-<section class="section alt" id="faq">
-<div class="container">
-<h2>Perguntas frequentes</h2>
-<details>
-<summary>Vocês vendem energia?</summary>
-<p>Não. Prestamos <strong>serviços de gestão</strong> da participação no SCEE. A energia continua sendo fornecida pela distribuidora.</p>
-</details>
-<details>
-<summary>Há garantia de economia mínima?</summary>
-<p>Não. A operação segue regras do SCEE, geração disponível e fatura oficial. Nossa atuação é de <strong>meio</strong>, sem garantia de resultado.</p>
-</details>
-<details>
-<summary>Como é calculado o success fee?</summary>
-<p>Aplicamos o percentual escolhido sobre a <strong>Economia Financeira</strong> apurada: <em>Economia = VRSC – VEF</em> (quando positiva), com base na fatura do ciclo.</p>
-</details>
-</div>
-</section>
-<section class="section contact" id="contato">
-<div class="container">
-<h2>Solicite sua proposta</h2>
-<form class="form" id="contactForm" novalidate="">
+  <header class="site-header">
+    <div class="container nav">
+      <a href="#" class="brand" aria-label="Página inicial Ely SolarHub">
+        <img src="assets/logo.svg" alt="Logo Ely SolarHub" class="logo">
+      </a>
+      <nav class="menu">
+        <a href="#como-funciona">Como funciona</a>
+        <a href="#remuneracao">Remuneração</a>
+        <a href="#legal">Base Legal</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contato" class="btn">Solicitar proposta</a>
+      </nav>
+    </div>
+  </header>
 
+  <section class="hero">
+    <div class="container hero-content">
+      <div class="hero-text">
+        <h1>Gestão de participação em geração compartilhada (SCEE)</h1>
+        <p>Operamos a sua participação em projetos de geração compartilhada, de forma regulatória e transparente. <strong>Sem venda de energia</strong>: a energia continua sendo fornecida pela <strong>distribuidora</strong>. Nossa remuneração é <strong>success fee</strong>, baseada na economia efetiva da sua fatura.</p>
+        <div class="cta">
+          <a href="#contato" class="btn btn-primary">Solicitar proposta</a>
+          <a href="#remuneracao" class="btn btn-outline">Entender o success fee</a>
+        </div>
+      </div>
+      <div class="hero-art">
+        <div class="card">
+          <h3>Estimativa ilustrativa</h3>
+          <form id="quickForm" class="form-grid" novalidate>
+            <label for="consumo">Consumo médio (kWh/mês)</label>
+            <input type="number" id="consumo" name="consumo" placeholder="Ex.: 350" value="350" min="50" required>
+            <label for="percentual">Percentual de Desconto (%)</label>
+            <input type="number" id="percentual" name="percentual" placeholder="Ex.: 20" value="20" min="1" max="100" required>
+            <button type="submit" class="btn btn-primary">Calcular</button>
+            <p id="resultado" class="muted" aria-live="polite"></p>
+            <p class="muted">*Valores ilustrativos. Simulação não é garantia de desconto, somente uma projeção.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <section id="como-funciona" class="section">
+    <div class="container">
+      <h2>Como funciona</h2>
+      <div class="steps">
+        <article>
+          <h3>1. Participação no SCEE</h3>
+          <p>Você ingressa em arranjo de geração compartilhada dentro da área da sua distribuidora.</p>
+        </article>
+        <article>
+          <h3>2. Créditos na fatura</h3>
+          <p>A distribuidora compensa créditos de energia na sua fatura, conforme regras do SCEE.</p>
+        </article>
+        <article>
+          <h3>3. Apuração oficial</h3>
+          <p>Comparamos a fatura do ciclo com o <strong>VRSC</strong> (sem compensação) e o <strong>VEF</strong> (após compensação).</p>
+        </article>
+        <article>
+          <h3>4. Success fee</h3>
+          <p>Você paga um <strong>percentual da economia</strong> apurada (<strong>Economia = VRSC – VEF</strong>, quando positiva).</p>
+        </article>
+      </div>
+    </div>
+  </section>
 
+  <section id="remuneracao" class="section alt">
+    <div class="container">
+      <h2>Remuneração baseada na economia (Success Fee)</h2>
+      <div class="grid-2">
+        <div>
+          <h3>Metodologia</h3>
+          <ul>
+            <li><strong>VRSC</strong>: valor estimado da fatura sem compensação (mesmo ciclo).</li>
+            <li><strong>VEF</strong>: valor efetivamente faturado após compensação.</li>
+            <li><strong>Economia Financeira = VRSC – VEF</strong> (quando positiva).</li>
+          </ul>
+          <p>Base documental: <strong>fatura emitida pela distribuidora</strong>. Em caso de divergência, conferência conjunta com documentos oficiais.</p>
+        </div>
+        <div>
+          <h3>Transparência e natureza do serviço</h3>
+          <p>A remuneração possui natureza exclusiva de <strong>prestação de serviços</strong>. Não se vincula a kWh, não representa preço de energia e não configura comercialização elétrica.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <section id="legal" class="section">
+    <div class="container">
+      <h2>Base legal e conformidade</h2>
+      <p>Atuamos conforme a <strong>Lei nº 14.300/2022</strong> (Marco Legal da Micro e Minigeração Distribuída) e as <strong>Regras da ANEEL (REN nº 1.000/2021)</strong>, no âmbito do <strong>Sistema de Compensação de Energia Elétrica (SCEE)</strong>. Condições variam por distribuidora.</p>
+    </div>
+  </section>
 
-</form>
-</div>
-</section>
+  <section id="faq" class="section alt">
+    <div class="container">
+      <h2>Perguntas frequentes</h2>
+      <details>
+        <summary>Vocês vendem energia?</summary>
+        <p>Não. Prestamos <strong>serviços de gestão</strong> da participação no SCEE. A energia continua sendo fornecida pela distribuidora.</p>
+      </details>
+      <details>
+        <summary>Há garantia de economia mínima?</summary>
+        <p>Não. A operação segue regras do SCEE, geração disponível e fatura oficial. Nossa atuação é de <strong>meio</strong>, sem garantia de resultado.</p>
+      </details>
+      <details>
+        <summary>Como é calculado o success fee?</summary>
+        <p>Aplicamos o percentual escolhido sobre a <strong>Economia Financeira</strong> apurada: <em>Economia = VRSC – VEF</em> (quando positiva), com base na fatura do ciclo.</p>
+      </details>
+    </div>
+  </section>
 
-<section class="section privacy" id="privacidade">
-<div class="container">
-<h2>Privacidade e termos</h2>
-<p class="muted">Usamos os dados informados neste site exclusivamente para contato e elaboração de proposta. Não vendemos dados a terceiros.</p>
-<details class="card">
-<summary><strong>Política de Privacidade (resumo)</strong></summary>
-<div class="card-body">
-<p>Coletamos nome, e-mail, telefone/WhatsApp, perfil, distribuidora e valor médio de fatura para entender seu caso e retornar com uma proposta. Você pode solicitar a atualização ou exclusão dos seus dados a qualquer momento pelos nossos canais de atendimento.</p>
-</div>
-</details>
-<details class="card">
-<summary><strong>Termos (resumo)</strong></summary>
-<div class="card-body">
-<p>As simulações e estimativas apresentadas são ilustrativas e não representam garantia de desconto. A apuração real depende das regras do SCEE e dos valores que constam na fatura da distribuidora.</p>
-</div>
-</details>
-</div>
-</section>
-<footer class="footer">
-<div class="container">
-<div class="grid-3">
-<div>
-<img alt="Ely SolarHub" class="logo" src="assets/logo.svg"/>
-<p>CNPJ: 64.072.577/0001-91<br/>Domínio: elysolarhub.com.br<br/>E-mail: contato@elysolarhub.com.br | WhatsApp: (61) 99614-0478</p>
-</div>
-<div>
-<h4>Links</h4>
-<ul class="flat">
-<li><a href="#como-funciona">Como funciona</a></li>
-<li><a href="#remuneracao">Remuneração</a></li>
-<li><a href="#legal">Base legal</a></li>
-<li><a href="#faq">FAQ</a></li>
-</ul>
-</div>
-<div>
-<h4>Transparência</h4>
-<p>Modelo de prestação de serviços de gestão regulatória e operacional. Não comercializamos energia elétrica.</p>
-</div>
-</div>
-<p class="muted center">© <span id="year"></span> Ely SolarHub Ltda — Todos os direitos reservados.</p>
-</div>
-</footer>
-<script src="assets/script.js"></script>
-<a aria-label="Falar no WhatsApp" class="whatsapp-float" href="https://wa.me/5561996140478" rel="noopener" target="_blank">WhatsApp</a></body>
+  <section id="contato" class="section contact">
+    <div class="container">
+      <h2>Solicite sua proposta</h2>
+      <form id="contactForm" class="form" novalidate>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" name="nome" required placeholder="Seu nome">
+          </div>
+          <div class="form-field">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" required placeholder="contato@elysolarhub.com.br" value="contato@elysolarhub.com.br">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="telefone">WhatsApp</label>
+            <input type="tel" id="telefone" name="telefone" placeholder="(61) 99614-0478" value="(61) 99614-0478">
+          </div>
+          <div class="form-field">
+            <label for="perfil">Perfil</label>
+            <select id="perfil" name="perfil" required>
+              <option value="" disabled selected>Selecione</option>
+              <option>Residencial</option>
+              <option>Comercial</option>
+              <option>Rural</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Receber proposta</button>
+          <a href="https://wa.me/5561996140478" class="btn btn-outline" target="_blank" rel="noopener">Falar no WhatsApp</a>
+          <p id="contactResult" class="muted" aria-live="polite"></p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="grid-3">
+        <div>
+          <img src="assets/logo.svg" alt="Ely SolarHub" class="logo">
+          <p>CNPJ: 64.072.577/0001-91<br>Domínio: elysolarhub.com.br<br>E-mail: contato@elysolarhub.com.br | WhatsApp: (61) 99614-0478</p>
+        </div>
+        <div>
+          <h4>Links</h4>
+          <ul class="flat">
+            <li><a href="#como-funciona">Como funciona</a></li>
+            <li><a href="#remuneracao">Remuneração</a></li>
+            <li><a href="#legal">Base legal</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Transparência</h4>
+          <p>Modelo de prestação de serviços de gestão regulatória e operacional. Não comercializamos energia elétrica.</p>
+        </div>
+      </div>
+      <p class="muted center">© <span id="year"></span> Ely SolarHub Ltda — Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="assets/script.js"></script>
+</body>
 </html>
