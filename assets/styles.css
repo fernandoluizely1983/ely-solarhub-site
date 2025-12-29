@@ -60,11 +60,10 @@ label{font-size:.9rem;color:var(--muted)}
 .form-row{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:14px}
 .form-field{display:flex;flex-direction:column;gap:8px}
 .form-actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:10px}
-.checkbox-row{margin:10px 0 6px}
-.checkbox-row .checkbox-label{display:flex;gap:10px;align-items:flex-start;color:var(--muted);font-size:.95rem}
-.checkbox-row .checkbox-label input{width:auto;margin-top:4px}
-.checkbox-row .checkbox-label span{display:inline-block}
-.checkbox-row .checkbox-label a{color:var(--accent)}
+.checkbox-row{display:flex;gap:10px;align-items:flex-start;margin:10px 0 6px}
+.checkbox-row input{width:auto;margin-top:4px}
+.checkbox-label{color:var(--muted);font-size:.95rem}
+.checkbox-label a{color:var(--accent)}
 
 /* Botão flutuante do WhatsApp */
 .whatsapp-float{
@@ -88,3 +87,5 @@ label{font-size:.9rem;color:var(--muted)}
   .form-actions{flex-direction:column;align-items:stretch}
   .form-actions .btn{width:100%;text-align:center}
 }
+
+.hidden{display:none}
