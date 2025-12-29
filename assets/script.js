@@ -55,6 +55,14 @@ function openWhatsAppWithForm(){
   window.open(url, '_blank', 'noopener');
 }
 
+function openEmailWithForm(){
+  const msg = buildWhatsMessage();
+  const subject = 'Solicitação de proposta — Ely SolarHub';
+  const mailto = `mailto:contato@elysolarhub.com.br?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(msg)}`;
+  // Em alguns navegadores, abrir em nova aba reduz bloqueios
+  window.location.href = mailto;
+}
+
 function validateContactForm(){
   const nome = (document.getElementById('nome')?.value || '').trim();
   const email = (document.getElementById('email')?.value || '').trim();
@@ -78,8 +86,8 @@ if(contactForm){
     e.preventDefault();
     const err = validateContactForm();
     if(err){ if(contactResult) contactResult.textContent = err; return; }
-    if(contactResult) contactResult.textContent = 'Perfeito! Vamos abrir o WhatsApp para você enviar os dados da proposta.';
-    openWhatsAppWithForm();
+    if(contactResult) contactResult.textContent = 'Perfeito! Vamos abrir seu e-mail para você enviar os dados da proposta.';
+    openEmailWithForm();
   });
 }
 
