@@ -103,24 +103,6 @@
     </div>
   </section>
 
-  <section id="faq" class="section alt">
-    <div class="container">
-      <h2>Perguntas frequentes</h2>
-      <details>
-        <summary>Vocês vendem energia?</summary>
-        <p>Não. Prestamos <strong>serviços de gestão</strong> da participação no SCEE. A energia continua sendo fornecida pela distribuidora.</p>
-      </details>
-      <details>
-        <summary>Há garantia de economia mínima?</summary>
-        <p>Não. A operação segue regras do SCEE, geração disponível e fatura oficial. Nossa atuação é de <strong>meio</strong>, sem garantia de resultado.</p>
-      </details>
-      <details>
-        <summary>Como é calculado o success fee?</summary>
-        <p>Aplicamos o percentual escolhido sobre a <strong>Economia Financeira</strong> apurada: <em>Economia = VRSC – VEF</em> (quando positiva), com base na fatura do ciclo.</p>
-      </details>
-    </div>
-  </section>
-
   <section id="contato" class="section contact">
     <div class="container">
       <h2>Solicite sua proposta</h2>
@@ -164,16 +146,14 @@
             <input type="number" id="valorFatura" name="valorFatura" required placeholder="Ex.: 1200" min="0" step="0.01">
           </div>
         </div>
-
         <div class="checkbox-row">
-          <input type="checkbox" id="lgpd" name="lgpd" required>
           <label for="lgpd" class="checkbox-label">
-            Concordo com o uso dos meus dados para contato e elaboração de proposta, conforme a
-            <a href="#privacidade">Política de Privacidade</a>.
+            <input type="checkbox" id="lgpd" name="lgpd" required>
+            <span>Concordo com o uso dos meus dados para contato e elaboração de proposta, conforme a <a href="#privacidade">Política de Privacidade</a>.</span>
           </label>
         </div>
 
-        <div class="form-actions">
+<div class="form-actions">
           <button type="submit" class="btn btn-primary">Receber proposta</button>
           <a id="btnWhatsContato" href="https://wa.me/5561996140478" class="btn btn-outline" target="_blank" rel="noopener">Falar no WhatsApp</a>
           <p id="contactResult" class="muted" aria-live="polite"></p>
@@ -182,7 +162,25 @@
     </div>
   </section>
 
-  <section id="privacidade" class="section alt">
+<section id="faq" class="section alt">
+    <div class="container">
+      <h2>Perguntas frequentes</h2>
+      <details>
+        <summary>Vocês vendem energia?</summary>
+        <p>Não. Prestamos <strong>serviços de gestão</strong> da participação no SCEE. A energia continua sendo fornecida pela distribuidora.</p>
+      </details>
+      <details>
+        <summary>Há garantia de economia mínima?</summary>
+        <p>Não. A operação segue regras do SCEE, geração disponível e fatura oficial. Nossa atuação é de <strong>meio</strong>, sem garantia de resultado.</p>
+      </details>
+      <details>
+        <summary>Como é calculado o success fee?</summary>
+        <p>Aplicamos o percentual escolhido sobre a <strong>Economia Financeira</strong> apurada: <em>Economia = VRSC – VEF</em> (quando positiva), com base na fatura do ciclo.</p>
+      </details>
+    </div>
+  </section>
+
+<section id="privacidade" class="section alt">
     <div class="container">
       <h2>Privacidade e termos</h2>
       <p class="muted">
