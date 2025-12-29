@@ -132,34 +132,68 @@
           </div>
           <div class="form-field">
             <label for="email">E-mail</label>
-            <input type="email" id="email" name="email" required placeholder="contato@elysolarhub.com.br" value="contato@elysolarhub.com.br">
+            <input type="email" id="email" name="email" required placeholder="seuemail@exemplo.com">
           </div>
         </div>
+
         <div class="form-row">
           <div class="form-field">
             <label for="telefone">WhatsApp</label>
-            <input type="tel" id="telefone" name="telefone" placeholder="(61) 99614-0478" value="(61) 99614-0478">
+            <input type="tel" id="telefone" name="telefone" required placeholder="(DDD) 9XXXX-XXXX">
           </div>
           <div class="form-field">
             <label for="perfil">Perfil</label>
             <select id="perfil" name="perfil" required>
               <option value="" disabled selected>Selecione</option>
-              <option>Residencial</option>
-              <option>Comercial</option>
-              <option>Rural</option>
+              <option value="Residencial">Residencial</option>
+              <option value="Comercial">Comercial</option>
+              <option value="Rural">Rural</option>
             </select>
           </div>
         </div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label for="distribuidora">Distribuidora</label>
+            <select id="distribuidora" name="distribuidora" required>
+              <option value="COPEL">COPEL</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="valorFatura">Valor médio da fatura (R$)</label>
+            <input type="number" id="valorFatura" name="valorFatura" required placeholder="Ex.: 1200" min="0" step="0.01">
+          </div>
+        </div>
+
+        <div class="checkbox-row">
+          <input type="checkbox" id="lgpd" name="lgpd" required>
+          <label for="lgpd" class="checkbox-label">
+            Concordo com o uso dos meus dados para contato e elaboração de proposta, conforme a
+            <a href="#privacidade">Política de Privacidade</a>.
+          </label>
+        </div>
+
         <div class="form-actions">
           <button type="submit" class="btn btn-primary">Receber proposta</button>
-          <a href="https://wa.me/5561996140478" class="btn btn-outline" target="_blank" rel="noopener">Falar no WhatsApp</a>
+          <a id="btnWhatsContato" href="https://wa.me/5561996140478" class="btn btn-outline" target="_blank" rel="noopener">Falar no WhatsApp</a>
           <p id="contactResult" class="muted" aria-live="polite"></p>
         </div>
       </form>
     </div>
   </section>
 
-  <footer class="footer">
+  <section id="privacidade" class="section alt">
+    <div class="container">
+      <h2>Privacidade e termos</h2>
+      <p class="muted">
+        Utilizamos os dados informados (nome, e-mail, WhatsApp, perfil, distribuidora e valor médio de fatura) exclusivamente para contato e elaboração de proposta.
+        Não compartilhamos seus dados com terceiros para fins de marketing. Você pode solicitar a atualização ou exclusão dos seus dados a qualquer momento pelo e-mail
+        <strong>contato@elysolarhub.com.br</strong>.
+      </p>
+    </div>
+  </section>
+
+<footer class="footer">
     <div class="container">
       <div class="grid-3">
         <div>
@@ -183,6 +217,8 @@
       <p class="muted center">© <span id="year"></span> Ely SolarHub Ltda — Todos os direitos reservados.</p>
     </div>
   </footer>
+
+  <a href="https://wa.me/5561996140478" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">WhatsApp</a>
 
   <script src="assets/script.js"></script>
 </body>
