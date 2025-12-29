@@ -23,16 +23,72 @@ if(quickForm){
   })
 }
 
-// Formulário de contato (simulação)
+// Formulário de contato (envio via WhatsApp)
 const contactForm = document.getElementById('contactForm');
 const contactResult = document.getElementById('contactResult');
+const btnWhatsContato = document.getElementById('btnWhatsContato');
+
+function buildWhatsMessage(){
+  const nome = (document.getElementById('nome')?.value || '').trim();
+  const email = (document.getElementById('email')?.value || '').trim();
+  const telefone = (document.getElementById('telefone')?.value || '').trim();
+  const perfil = (document.getElementById('perfil')?.value || '').trim();
+  const distribuidora = (document.getElementById('distribuidora')?.value || '').trim();
+  const valorFatura = (document.getElementById('valorFatura')?.value || '').trim();
+
+  const linhas = [
+    'Olá! Gostaria de solicitar uma proposta.',
+    '',
+    `Nome: ${nome || '-'}`,
+    `E-mail: ${email || '-'}`,
+    `WhatsApp: ${telefone || '-'}`,
+    `Perfil: ${perfil || '-'}`,
+    `Distribuidora: ${distribuidora || '-'}`,
+    `Valor médio da fatura: R$ ${valorFatura || '-'}`,
+  ];
+  return linhas.join('\n');
+}
+
+function openWhatsAppWithForm(){
+  const msg = buildWhatsMessage();
+  const url = `https://wa.me/5561996140478?text=${encodeURIComponent(msg)}`;
+  window.open(url, '_blank', 'noopener');
+}
+
+function validateContactForm(){
+  const nome = (document.getElementById('nome')?.value || '').trim();
+  const email = (document.getElementById('email')?.value || '').trim();
+  const telefone = (document.getElementById('telefone')?.value || '').trim();
+  const perfil = (document.getElementById('perfil')?.value || '').trim();
+  const distribuidora = (document.getElementById('distribuidora')?.value || '').trim();
+  const valorFatura = (document.getElementById('valorFatura')?.value || '').trim();
+  const lgpd = document.getElementById('lgpd');
+
+  if(!nome || !email || !telefone || !perfil || !distribuidora || !valorFatura){
+    return 'Preencha todos os campos para solicitar a proposta.';
+  }
+  if(lgpd && !lgpd.checked){
+    return 'Para continuar, marque o consentimento de uso de dados (LGPD).';
+  }
+  return '';
+}
+
 if(contactForm){
   contactForm.addEventListener('submit', (e)=>{
     e.preventDefault();
-    const nome = document.getElementById('nome').value.trim();
-    const email = document.getElementById('email').value.trim();
-    if(!nome || !email){ contactResult.textContent = 'Preencha nome e e-mail.'; return; }
-    contactResult.textContent = 'Obrigado! Em breve enviaremos sua proposta com metodologia VRSC/VEF.';
-    contactForm.reset();
-  })
+    const err = validateContactForm();
+    if(err){ if(contactResult) contactResult.textContent = err; return; }
+    if(contactResult) contactResult.textContent = 'Perfeito! Vamos abrir o WhatsApp para você enviar os dados da proposta.';
+    openWhatsAppWithForm();
+  });
+}
+
+if(btnWhatsContato){
+  btnWhatsContato.addEventListener('click', (e)=>{
+    // Se o usuário já preencheu o formulário, envia com os dados; caso contrário, segue link padrão
+    const err = validateContactForm();
+    if(err){ return; }
+    e.preventDefault();
+    openWhatsAppWithForm();
+  });
 }
