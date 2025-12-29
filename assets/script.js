@@ -1,43 +1,73 @@
-// Formatação BRL
-const fmtBRL = (v) => Number(v).toLocaleString("pt-BR", {
-  style: "currency", currency: "BRL",
-});
+// Atualiza ano
+const year = document.getElementById('year');
+if(year){ year.textContent = new Date().getFullYear(); }
 
-const resultadoEl = document.getElementById("resultado");
-const resumoEl = document.getElementById("resumo-executivo");
+// Estimativa ilustrativa: success fee
+const quickForm = document.getElementById('quickForm');
+const resultado = document.getElementById('resultado');
+if(quickForm){
+  quickForm.addEventListener('submit', (e)=>{
+    e.preventDefault();
+    const fatura = Number(document.getElementById('fatura').value || 0);
+    const economiaPerc = Number(document.getElementById('economiaPerc').value || 0) / 100;
+    const perc = Number(document.getElementById('percentual').value || 0) / 100;
 
-/**
- * Chame esta função com os valores NUMÉRICOS do seu simulador
- * (VRSC, VEF, Economia mensal, Success fee).
- * Não altera a lógica; só a apresentação.
- */
-function renderResultadosFormal({ vrsc, vef, economiaMensal, successFee }) {
-  // Linha técnica formal (sem “≈” e sem “•”)
-  const linhaFormal = `
-    <div class="resultado-formal">
-      <b>VRSC:</b> ${fmtBRL(vrsc)} |
-      <b>VEF:</b> ${fmtBRL(vef)} |
-      <b>Economia:</b> ${fmtBRL(economiaMensal)} |
-      <b>Success fee:</b> ${fmtBRL(successFee)}
-    </div>
-  `;
-  if (resultadoEl) resultadoEl.innerHTML = linhaFormal;
+    if(!fatura || !economiaPerc || !perc){
+      resultado.textContent = 'Preencha o valor da fatura, economia estimada e percentual.';
+      return;
+    }
 
-  // Resumo executivo (mensal + anual)
-  const economiaAnual = Number(economiaMensal) * 12;
-  if (resumoEl) {
-    resumoEl.innerHTML = `
-      <div class="linha-forte">Economia mensal de ${fmtBRL(economiaMensal)}</div>
-      <div class="linha-forte">Economia anual de ${fmtBRL(economiaAnual)}</div>
-    `;
-  }
+    // Estimativa simples (ilustrativa): usa percentuais informados pelo usuário.
+    // A apuração real do success fee deve ser feita com base no VRSC e VEF da fatura do ciclo.
+    const economia = Math.max(0, fatura * economiaPerc);
+    const vef = Math.max(0, fatura - economia);
+    const fee = economia * perc;
+    resultado.textContent = `VRSC≈ R$ ${fatura.toFixed(2)} • VEF≈ R$ ${vef.toFixed(2)} • Economia≈ R$ ${economia.toFixed(2)} • Success fee≈ R$ ${fee.toFixed(2)}.`;
+  })
 }
 
-// TODO: Chamar renderResultadosFormal com os valores reais após o cálculo.
-// Exemplo (mock) — remova quando integrar:
-renderResultadosFormal({
-  vrsc: 297.50,
-  vef: 252.88,
-  economiaMensal: 44.63,
-  successFee: 8.93,
-});
+// Formulário de contato (simulação)
+const contactForm = document.getElementById('contactForm');
+const contactResult = document.getElementById('contactResult');
+if(contactForm){
+  contactForm.addEventListener('submit', (e)=>{
+    e.preventDefault();
+    const nome = document.getElementById('nome').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const telefone = document.getElementById('telefone').value.trim();
+    const perfil = document.getElementById('perfil').value;
+    const distribuidora = document.getElementById('distribuidora').value.trim();
+    const valorConta = document.getElementById('valorConta').value.trim();
+    const lgpd = document.getElementById('lgpd')?.checked;
+
+    if(!nome || !email || !perfil){
+      contactResult.textContent = 'Preencha nome, e-mail e perfil.';
+      return;
+    }
+    if(!lgpd){
+      contactResult.textContent = 'Para enviar, marque o consentimento de privacidade (LGPD).';
+      return;
+    }
+
+    const linhas = [
+      'Olá! Gostaria de receber uma proposta da Ely SolarHub.',
+      '',
+      `Nome: ${nome}`,
+      `E-mail: ${email}`,
+      telefone ? `WhatsApp: ${telefone}` : null,
+      `Perfil: ${perfil}`,
+      distribuidora ? `Distribuidora: ${distribuidora}` : null,
+      valorConta ? `Valor médio da fatura: R$ ${Number(valorConta).toFixed(2)}` : null,
+      '',
+      'Observação: ciente de que a apuração segue VRSC e VEF na fatura do ciclo (SCEE) e que não há garantia de economia mínima.'
+    ].filter(Boolean);
+
+    const msg = encodeURIComponent(linhas.join('\n'));
+    const wa = `https://wa.me/5561996140478?text=${msg}`;
+
+    // Feedback imediato e abertura do WhatsApp em nova aba.
+    contactResult.textContent = 'Perfeito! Abrindo o WhatsApp com sua solicitação…';
+    window.open(wa, '_blank', 'noopener');
+    contactForm.reset();
+  })
+}
