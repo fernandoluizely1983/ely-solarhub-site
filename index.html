@@ -5,16 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Ely SolarHub Ltda — Gestão de Participação em Geração Compartilhada (SCEE)</title>
   <meta name="description" content="Serviços de gestão regulatória e operacional da participação em geração compartilhada (SCEE). Remuneração por success fee: percentual sobre a economia apurada na fatura.">
-  <link rel="canonical" href="https://elysolarhub.com.br/">
-
-  <!-- Open Graph (pré-visualização em WhatsApp/LinkedIn) -->
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="pt_BR">
-  <meta property="og:title" content="Ely SolarHub — Gestão de participação em geração compartilhada (SCEE)">
-  <meta property="og:description" content="Serviços de gestão regulatória e operacional da participação em geração compartilhada (SCEE). Remuneração por success fee, baseada na economia apurada na fatura.">
-  <meta property="og:url" content="https://elysolarhub.com.br/">
-  <meta property="og:image" content="https://elysolarhub.com.br/assets/logo.svg">
-  <meta name="twitter:card" content="summary">
   <link rel="stylesheet" href="assets/styles.css">
   <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
 </head>
@@ -48,15 +38,13 @@
         <div class="card">
           <h3>Estimativa ilustrativa</h3>
           <form id="quickForm" class="form-grid" novalidate>
-            <label for="fatura">Valor médio da fatura (R$/mês)</label>
-            <input type="number" id="fatura" name="fatura" placeholder="Ex.: 850" value="850" min="100" required>
-            <label for="economiaPerc">Economia estimada (%)</label>
-            <input type="number" id="economiaPerc" name="economiaPerc" placeholder="Ex.: 10" value="10" min="1" max="80" required>
-            <label for="percentual">Percentual de success fee (%)</label>
+            <label for="consumo">Consumo médio (kWh/mês)</label>
+            <input type="number" id="consumo" name="consumo" placeholder="Ex.: 350" value="350" min="50" required>
+            <label for="percentual">Percentual de Desconto (%)</label>
             <input type="number" id="percentual" name="percentual" placeholder="Ex.: 20" value="20" min="1" max="100" required>
             <button type="submit" class="btn btn-primary">Calcular</button>
             <p id="resultado" class="muted" aria-live="polite"></p>
-            <p class="muted">*Estimativa apenas para referência. A apuração real segue VRSC e VEF na fatura da distribuidora (SCEE). Não há garantia de economia.</p>
+            <p class="muted">*Valores ilustrativos. Simulação não é garantia de desconto, somente uma projeção.</p>
           </form>
         </div>
       </div>
@@ -144,13 +132,13 @@
           </div>
           <div class="form-field">
             <label for="email">E-mail</label>
-            <input type="email" id="email" name="email" required placeholder="seuemail@exemplo.com">
+            <input type="email" id="email" name="email" required placeholder="contato@elysolarhub.com.br" value="contato@elysolarhub.com.br">
           </div>
         </div>
         <div class="form-row">
           <div class="form-field">
             <label for="telefone">WhatsApp</label>
-            <input type="tel" id="telefone" name="telefone" placeholder="(DDD) 9XXXX-XXXX">
+            <input type="tel" id="telefone" name="telefone" placeholder="(61) 99614-0478" value="(61) 99614-0478">
           </div>
           <div class="form-field">
             <label for="perfil">Perfil</label>
@@ -162,58 +150,12 @@
             </select>
           </div>
         </div>
-        <div class="form-row">
-          <div class="form-field">
-            <label for="distribuidora">Distribuidora</label>
-            <input type="text" id="distribuidora" name="distribuidora" placeholder="Ex.: COPEL" >
-          </div>
-          <div class="form-field">
-            <label for="valorConta">Valor médio da fatura (R$)</label>
-            <input type="number" id="valorConta" name="valorConta" placeholder="Ex.: 1200" min="0">
-          </div>
-        </div>
-
-        <div class="consent">
-          <label class="checkbox">
-            <input type="checkbox" id="lgpd" required>
-            <span>Concordo com o uso dos meus dados para contato e elaboração de proposta, conforme a <a href="#privacidade">Política de Privacidade</a>.</span>
-          </label>
-        </div>
         <div class="form-actions">
           <button type="submit" class="btn btn-primary">Receber proposta</button>
           <a href="https://wa.me/5561996140478" class="btn btn-outline" target="_blank" rel="noopener">Falar no WhatsApp</a>
           <p id="contactResult" class="muted" aria-live="polite"></p>
         </div>
       </form>
-    </div>
-  </section>
-
-  <section id="privacidade" class="section alt">
-    <div class="container">
-      <h2>Privacidade e termos</h2>
-      <div class="grid-2">
-        <div>
-          <h3>Política de Privacidade (LGPD)</h3>
-          <p>Coletamos apenas os dados necessários para <strong>contato</strong> e <strong>elaboração de proposta</strong> (ex.: nome, e-mail, WhatsApp e informações básicas de consumo). Não vendemos seus dados.</p>
-          <ul>
-            <li><strong>Finalidade:</strong> responder solicitações, enviar proposta e suportar a operação contratada.</li>
-            <li><strong>Base legal:</strong> consentimento e/ou execução de contrato (conforme o caso).</li>
-            <li><strong>Retenção:</strong> pelo tempo necessário para atendimento e obrigações legais/regulatórias.</li>
-            <li><strong>Direitos:</strong> confirmação, acesso, correção, portabilidade, eliminação e revogação do consentimento.</li>
-          </ul>
-          <p>Contato do controlador: <strong>contato@elysolarhub.com.br</strong>.</p>
-        </div>
-        <div>
-          <h3>Termos do serviço (resumo)</h3>
-          <ul>
-            <li>Prestação de <strong>serviços de gestão</strong> regulatória e operacional relacionados à participação no SCEE.</li>
-            <li><strong>Não comercializamos energia elétrica</strong> e não garantimos economia mínima.</li>
-            <li>A remuneração (success fee) é calculada com base na <strong>economia financeira</strong> apurada na fatura (VRSC e VEF), quando positiva.</li>
-            <li>Condições podem variar por distribuidora e regras vigentes.</li>
-          </ul>
-          <p>O contrato definitivo detalha direitos, deveres, critérios de apuração, prazos e condições aplicáveis.</p>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -231,7 +173,6 @@
             <li><a href="#remuneracao">Remuneração</a></li>
             <li><a href="#legal">Base legal</a></li>
             <li><a href="#faq">FAQ</a></li>
-            <li><a href="#privacidade">Privacidade e termos</a></li>
           </ul>
         </div>
         <div>
@@ -242,10 +183,6 @@
       <p class="muted center">© <span id="year"></span> Ely SolarHub Ltda — Todos os direitos reservados.</p>
     </div>
   </footer>
-
-  <a class="floating-whatsapp" href="https://wa.me/5561996140478" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
-    WhatsApp
-  </a>
 
   <script src="assets/script.js"></script>
 </body>
