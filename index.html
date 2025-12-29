@@ -125,11 +125,12 @@
     <div class="container">
       <h2>Solicite sua proposta</h2>
       <form id="contactForm" name="solicitar-proposta" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/obrigado.html" class="form" novalidate>
-        <input type="hidden" name="form-name" value="solicitar-proposta">
+        
+        <input type="hidden" name="form-name" value="solicitar-proposta" />
         <p class="hidden">
-          <label>Não preencha: <input name="bot-field"></label>
+          <label>Não preencha: <input name="bot-field" /></label>
         </p>
-        <div class="form-row">
+<div class="form-row">
           <div class="form-field">
             <label for="nome">Nome</label>
             <input type="text" id="nome" name="nome" required placeholder="Seu nome">
@@ -160,8 +161,8 @@
           <div class="form-field">
             <label for="distribuidora">Distribuidora</label>
             <select id="distribuidora" name="distribuidora" required>
-              <option value="COPEL">COPEL</option>
-            </select>
+            <option value="COPEL">COPEL</option>
+          </select>
           </div>
           <div class="form-field">
             <label for="valorFatura">Valor médio da fatura (R$)</label>
@@ -170,8 +171,8 @@
         </div>
 
         <div class="checkbox-row">
-          <label class="checkbox-label" for="lgpd">
-            <input type="checkbox" id="lgpd" name="lgpd" required>
+          <input type="checkbox" id="lgpd" name="lgpd" required>
+          <label for="lgpd" class="checkbox-label">
             Concordo com o uso dos meus dados para contato e elaboração de proposta, conforme a
             <a href="#privacidade">Política de Privacidade</a>.
           </label>
@@ -190,7 +191,9 @@
     <div class="container">
       <h2>Privacidade e termos</h2>
       <p class="muted">
-        Utilizamos os dados informados (nome, e-mail, WhatsApp, perfil, distribuidora e valor médio de fatura) exclusivamente para contato e elaboração de proposta. Não compartilhamos seus dados com terceiros para fins de marketing. Você pode solicitar atualização ou exclusão dos seus dados a qualquer momento pelo e-mail <strong>contato@elysolarhub.com.br</strong>.
+        Utilizamos os dados informados (nome, e-mail, WhatsApp, perfil, distribuidora e valor médio de fatura) exclusivamente para contato e elaboração de proposta.
+        Não compartilhamos seus dados com terceiros para fins de marketing. Você pode solicitar a atualização ou exclusão dos seus dados a qualquer momento pelo e-mail
+        <strong>contato@elysolarhub.com.br</strong>.
       </p>
     </div>
   </section>
