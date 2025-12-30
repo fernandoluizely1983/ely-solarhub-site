@@ -1,4 +1,4 @@
-// Atualiza ano
+// Atualiza ano (rodapé)
 const year = document.getElementById('year');
 if (year) year.textContent = new Date().getFullYear();
 
@@ -8,7 +8,7 @@ if (year) year.textContent = new Date().getFullYear();
 const quickForm = document.getElementById('quickForm');
 const resultado = document.getElementById('resultado');
 
-function brl(v){
+function brl(v) {
   return Number(v).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 }
 
@@ -27,8 +27,8 @@ if (quickForm && resultado) {
     const percDesconto = perc / 100;
 
     // Modelo simples (ilustrativo): tarifa média x consumo e aplicação do percentual informado
-    const tarifa = 0.85; // R$/kWh (apenas referência)
-    const valorReferencia = kwh * tarifa;
+    const tarifaReferencia = 0.85; // R$/kWh (apenas referência)
+    const valorReferencia = kwh * tarifaReferencia;
 
     const descontoMes = Math.max(0, valorReferencia * percDesconto);
     const descontoAno = descontoMes * 12;
@@ -40,21 +40,32 @@ if (quickForm && resultado) {
 }
 
 // ============================
-// Botões do formulário de proposta
-// - "Receber proposta": POST normal (Netlify Forms) - NÃO interceptar
-// - "Falar no WhatsApp": se campos preenchidos, abre WhatsApp com mensagem pronta
+// WhatsApp (botão do formulário de proposta)
 // ============================
 const btnWhatsContato = document.getElementById('btnWhatsContato');
+const contactResult = document.getElementById('contactResult');
+
+// Ajuste aqui o número de destino (DDI+DDD+numero, sem símbolos)
+const WHATS_DESTINO = '5561996140478';
+
+function setContactMsg(msg) {
+  if (!contactResult) return;
+  contactResult.textContent = msg || '';
+}
+
+function getVal(id) {
+  return (document.getElementById(id)?.value || '').trim();
+}
 
 function buildWhatsMessage() {
-  const nome = (document.getElementById('nome')?.value || '').trim();
-  const email = (document.getElementById('email')?.value || '').trim();
-  const telefone = (document.getElementById('telefone')?.value || '').trim();
-  const perfil = (document.getElementById('perfil')?.value || '').trim();
-  const distribuidora = (document.getElementById('distribuidora')?.value || '').trim();
-  const valorFatura = (document.getElementById('valorFatura')?.value || '').trim();
+  const nome = getVal('nome');
+  const email = getVal('email');
+  const telefone = getVal('telefone');
+  const perfil = getVal('perfil');
+  const distribuidora = getVal('distribuidora');
+  const valorFatura = getVal('valorFatura');
 
-  const linhas = [
+  return [
     'Olá! Gostaria de solicitar uma proposta.',
     '',
     `Nome: ${nome || '-'}`,
@@ -63,22 +74,20 @@ function buildWhatsMessage() {
     `Perfil: ${perfil || '-'}`,
     `Distribuidora: ${distribuidora || '-'}`,
     `Valor médio da fatura: R$ ${valorFatura || '-'}`,
-  ];
-
-  return linhas.join('\n');
+  ].join('\n');
 }
 
-function validateContactFormForWhats() {
-  const nome = (document.getElementById('nome')?.value || '').trim();
-  const email = (document.getElementById('email')?.value || '').trim();
-  const telefone = (document.getElementById('telefone')?.value || '').trim();
-  const perfil = (document.getElementById('perfil')?.value || '').trim();
-  const distribuidora = (document.getElementById('distribuidora')?.value || '').trim();
-  const valorFatura = (document.getElementById('valorFatura')?.value || '').trim();
+function validateForWhats() {
+  const nome = getVal('nome');
+  const email = getVal('email');
+  const telefone = getVal('telefone');
+  const perfil = getVal('perfil');
+  const distribuidora = getVal('distribuidora');
+  const valorFatura = getVal('valorFatura');
   const lgpd = document.getElementById('lgpd');
 
   if (!nome || !email || !telefone || !perfil || !distribuidora || !valorFatura) {
-    return 'Preencha todos os campos para enviar pelo WhatsApp.';
+    return 'Preencha os campos acima para enviar pelo WhatsApp.';
   }
   if (lgpd && !lgpd.checked) {
     return 'Para continuar, marque o consentimento de uso de dados (LGPD).';
@@ -86,15 +95,26 @@ function validateContactFormForWhats() {
   return '';
 }
 
-if (btnWhatsContato) {
-  btnWhatsContato.addEventListener('click', (e) => {
-    // Se não tiver tudo preenchido, deixa seguir para o link padrão do botão.
-    const err = validateContactFormForWhats();
-    if (err) return;
+function openWhatsAppWithMessage() {
+  const err = validateForWhats();
+  if (err) {
+    setContactMsg(err);
+    return;
+  }
 
+  setContactMsg('');
+  const msg = buildWhatsMessage();
+  const url = `https://wa.me/${WHATS_DESTINO}?text=${encodeURIComponent(msg)}`;
+
+  // Alguns navegadores bloqueiam window.open; fallback para navegação na mesma aba
+  const w = window.open(url, '_blank', 'noopener');
+  if (!w) window.location.href = url;
+}
+
+if (btnWhatsContato) {
+  // Sempre impedir o comportamento padrão do <a> (que abriria WA em branco)
+  btnWhatsContato.addEventListener('click', (e) => {
     e.preventDefault();
-    const msg = buildWhatsMessage();
-    const url = `https://wa.me/5561996140478?text=${encodeURIComponent(msg)}`;
-    window.open(url, '_blank', 'noopener');
+    openWhatsAppWithMessage();
   });
 }
