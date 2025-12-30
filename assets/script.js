@@ -40,21 +40,55 @@ if (quickForm && resultado) {
 }
 
 // ============================
-// WhatsApp (botão do formulário de proposta)
+// Formulário "Solicite sua proposta"
+// - Receber proposta: envia via Netlify Forms (submit normal)
+// - Falar no WhatsApp: abre WA com mensagem pronta
+// Regras: NÃO permitir seguir com campos em branco.
 // ============================
+const contactForm = document.getElementById('contactForm');
 const btnWhatsContato = document.getElementById('btnWhatsContato');
 const contactResult = document.getElementById('contactResult');
 
 // Ajuste aqui o número de destino (DDI+DDD+numero, sem símbolos)
 const WHATS_DESTINO = '5561996140478';
 
+function getVal(id) {
+  return (document.getElementById(id)?.value || '').trim();
+}
+
 function setContactMsg(msg) {
   if (!contactResult) return;
   contactResult.textContent = msg || '';
 }
 
-function getVal(id) {
-  return (document.getElementById(id)?.value || '').trim();
+function markTouched(el) {
+  if (!el) return;
+  el.classList.add('touched');
+}
+
+// Ao tentar enviar: se inválido, mostra mensagens do navegador e impede submit
+if (contactForm) {
+  // marca campos como "tocados" quando o usuário tenta enviar
+  const requiredFields = contactForm.querySelectorAll('input[required], select[required]');
+  requiredFields.forEach((el) => {
+    el.addEventListener('blur', () => markTouched(el));
+    el.addEventListener('change', () => markTouched(el));
+    el.addEventListener('input', () => markTouched(el));
+  });
+
+  contactForm.addEventListener('submit', (e) => {
+    setContactMsg('');
+    // checkValidity usa as regras HTML5 (required, type=email etc.)
+    if (!contactForm.checkValidity()) {
+      e.preventDefault();
+      // dispara os balões/mensagens padrão do navegador
+      contactForm.reportValidity();
+      // marca tudo como tocado para destacar visualmente
+      requiredFields.forEach(markTouched);
+      setContactMsg('Revise os campos destacados para continuar.');
+    }
+    // se estiver válido, segue submit normal (Netlify Forms)
+  });
 }
 
 function buildWhatsMessage() {
@@ -77,28 +111,12 @@ function buildWhatsMessage() {
   ].join('\n');
 }
 
-function validateForWhats() {
-  const nome = getVal('nome');
-  const email = getVal('email');
-  const telefone = getVal('telefone');
-  const perfil = getVal('perfil');
-  const distribuidora = getVal('distribuidora');
-  const valorFatura = getVal('valorFatura');
-  const lgpd = document.getElementById('lgpd');
-
-  if (!nome || !email || !telefone || !perfil || !distribuidora || !valorFatura) {
-    return 'Preencha os campos acima para enviar pelo WhatsApp.';
-  }
-  if (lgpd && !lgpd.checked) {
-    return 'Para continuar, marque o consentimento de uso de dados (LGPD).';
-  }
-  return '';
-}
-
 function openWhatsAppWithMessage() {
-  const err = validateForWhats();
-  if (err) {
-    setContactMsg(err);
+  if (contactForm && !contactForm.checkValidity()) {
+    contactForm.reportValidity();
+    const requiredFields = contactForm.querySelectorAll('input[required], select[required]');
+    requiredFields.forEach(markTouched);
+    setContactMsg('Preencha todos os campos para enviar pelo WhatsApp.');
     return;
   }
 
@@ -106,13 +124,11 @@ function openWhatsAppWithMessage() {
   const msg = buildWhatsMessage();
   const url = `https://wa.me/${WHATS_DESTINO}?text=${encodeURIComponent(msg)}`;
 
-  // Alguns navegadores bloqueiam window.open; fallback para navegação na mesma aba
   const w = window.open(url, '_blank', 'noopener');
   if (!w) window.location.href = url;
 }
 
 if (btnWhatsContato) {
-  // Sempre impedir o comportamento padrão do <a> (que abriria WA em branco)
   btnWhatsContato.addEventListener('click', (e) => {
     e.preventDefault();
     openWhatsAppWithMessage();
