@@ -73,6 +73,8 @@ function validateContactForm(){
   return '';
 }
 
+);
+}
 
 if(btnWhatsContato){
   btnWhatsContato.addEventListener('click', (e)=>{

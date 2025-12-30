@@ -88,4 +88,5 @@ label{font-size:.9rem;color:var(--muted)}
   .form-actions .btn{width:100%;text-align:center}
 }
 
-.hidden{display:none}
+
+.hidden{display:none;}
