@@ -128,3 +128,24 @@ label{font-size:.9rem;color:var(--muted)}
   hyphens: auto;
 }
 
+/* Rodapé: justificar texto do bloco Transparência */
+.footer .footer-legal{
+  text-align: justify;
+  text-align-last: left;
+  text-justify: inter-word;
+  hyphens: auto;
+}
+
+/* Rodapé: links e espaçamento */
+.footer a{
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.footer a:hover{
+  text-decoration: underline;
+}
+
+.footer .footer-info{
+  margin: 10px 0 0;
+}
