@@ -110,3 +110,19 @@ label{font-size:.9rem;color:var(--muted)}
 .mvv .card h3{
   margin-top: 0;
 }
+
+/* =========================
+   Quem somos (ajustes finos)
+========================= */
+
+.about-text{
+  width: 100%;
+  max-width: 100%;
+}
+
+.about-text p{
+  text-align: justify;
+  text-align-last: left;     /* última linha não fica “esticada” */
+  text-justify: inter-word;
+  hyphens: auto;             /* melhora a justificação */
+}
