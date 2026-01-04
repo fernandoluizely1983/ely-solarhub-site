@@ -1,239 +1,455 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <title>Ely SolarHub Ltda — Gestão de Participação em Geração Compartilhada (SCEE)</title>
-  <meta name="description" content="Serviços de gestão regulatória e operacional da participação em geração compartilhada (SCEE). Remuneração por success fee: percentual sobre a economia apurada na fatura.">
-  <link rel="stylesheet" href="assets/styles.css">
-  <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+  <meta
+    name="description"
+    content="Ely SolarHub — serviços de gestão regulatória e operacional da participação em geração compartilhada (SCEE). Remuneração por success fee, conforme economia apurada na fatura, sem garantia de resultado."
+  />
+
+  <!-- Troque para o caminho real do seu CSS (ex.: assets/styles.css) -->
+  <link rel="stylesheet" href="assets/styles.css" />
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
+
+  <meta name="theme-color" content="#0b1220" />
 </head>
+
 <body class="light">
+  <!-- Header -->
   <header class="site-header">
-    <div class="container nav">
-      <a href="#" class="brand" aria-label="Página inicial Ely SolarHub">
-        <img src="assets/logo.svg" alt="Logo Ely SolarHub" class="logo">
+    <div class="container header-inner">
+      <a class="brand" href="#topo" aria-label="Ir para o início">
+        <img src="assets/logo.svg" alt="Ely SolarHub" class="logo" />
+        <span class="brand-name">Ely SolarHub</span>
       </a>
-      <nav class="menu">
+
+      <nav class="nav" aria-label="Navegação principal">
+        <a href="#quem-somos">Quem somos</a>
         <a href="#como-funciona">Como funciona</a>
         <a href="#remuneracao">Remuneração</a>
-        <a href="#legal">Base Legal</a>
-        <a href="#faq">FAQ</a>
-        <a href="#contato" class="btn">Solicitar proposta</a>
+        <a href="#faq">Dúvidas</a>
+        <a href="#contato" class="btn btn-outline">Receber proposta</a>
       </nav>
     </div>
   </header>
 
-  <section class="hero">
-    <div class="container hero-content">
-      <div class="hero-text">
-        <h1>Gestão de participação em geração compartilhada (SCEE)</h1>
-        <p>Operamos a sua participação em projetos de geração compartilhada, de forma regulatória e transparente. <strong>Sem venda de energia</strong>: a energia continua sendo fornecida pela <strong>distribuidora</strong>. Nossa remuneração é <strong>success fee</strong>, baseada na economia efetiva da sua fatura.</p>
-        <div class="cta">
-          <a href="#contato" class="btn btn-primary">Solicitar proposta</a>
-          <a href="#remuneracao" class="btn btn-outline">Entender o success fee</a>
-        </div>
-      </div>
-      <div class="hero-art">
-        <div class="card">
-          <h3>Estimativa ilustrativa</h3>
-          <form id="quickForm" class="form-grid" novalidate>
-            <label for="consumo">Consumo médio (kWh/mês)</label>
-            <input type="number" id="consumo" name="consumo" placeholder="Ex.: 350" value="350" min="50" required>
-            <label for="percentual">Percentual de Desconto (%)</label>
-            <input type="number" id="percentual" name="percentual" placeholder="Ex.: 20" value="20" min="1" max="100" required>
-            <button type="submit" class="btn btn-primary">Calcular</button>
-            <p id="resultado" class="muted" aria-live="polite"></p>
-            <p class="muted">*Valores ilustrativos. Simulação não é garantia de desconto, somente uma projeção.</p>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- Hero -->
+  <main id="topo">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <h1>Gestão de participação em geração compartilhada (SCEE), com conformidade e clareza.</h1>
 
-  <section id="como-funciona" class="section">
-    <div class="container">
-      <h2>Como funciona</h2>
-      <div class="steps">
-        <article>
-          <h3>1. Participação no SCEE</h3>
-          <p>Você ingressa em arranjo de geração compartilhada dentro da área da sua distribuidora.</p>
-        </article>
-        <article>
-          <h3>2. Créditos na fatura</h3>
-          <p>A distribuidora compensa créditos de energia na sua fatura, conforme regras do SCEE.</p>
-        </article>
-        <article>
-          <h3>3. Apuração oficial</h3>
-          <p>Comparamos a fatura do ciclo com o <strong>VRSC</strong> (sem compensação) e o <strong>VEF</strong> (após compensação).</p>
-        </article>
-        <article>
-          <h3>4. Success fee</h3>
-          <p>Você paga um <strong>percentual da economia</strong> apurada (<strong>Economia = VRSC – VEF</strong>, quando positiva).</p>
-        </article>
-      </div>
-    </div>
-  </section>
+          <p class="lead">
+            A Ely SolarHub presta <strong>serviços de gestão</strong> para viabilizar e acompanhar a participação do cliente
+            em geração compartilhada no SCEE, atuando na interface documental, regulatória e operacional com a distribuidora,
+            sempre com transparência sobre limites, regras e condições.
+          </p>
 
-  <section id="remuneracao" class="section alt">
-    <div class="container">
-      <h2>Remuneração baseada na economia (Success Fee)</h2>
-      <div class="grid-2">
-        <div>
-          <h3>Metodologia</h3>
-          <ul>
-            <li><strong>VRSC</strong>: valor estimado da fatura sem compensação (mesmo ciclo).</li>
-            <li><strong>VEF</strong>: valor efetivamente faturado após compensação.</li>
-            <li><strong>Economia Financeira = VRSC – VEF</strong> (quando positiva).</li>
-          </ul>
-          <p>Base documental: <strong>fatura emitida pela distribuidora</strong>. Em caso de divergência, conferência conjunta com documentos oficiais.</p>
-        </div>
-        <div>
-          <h3>Transparência e natureza do serviço</h3>
-          <p>A remuneração possui natureza exclusiva de <strong>prestação de serviços</strong>. Não se vincula a kWh, não representa preço de energia e não configura comercialização elétrica.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="legal" class="section">
-    <div class="container">
-      <h2>Base legal e conformidade</h2>
-      <p>Atuamos conforme a <strong>Lei nº 14.300/2022</strong> (Marco Legal da Micro e Minigeração Distribuída) e as <strong>Regras da ANEEL (REN nº 1.000/2021)</strong>, no âmbito do <strong>Sistema de Compensação de Energia Elétrica (SCEE)</strong>. Condições variam por distribuidora.</p>
-    </div>
-  </section>
-
-  <section id="contato" class="section contact">
-    <div class="container">
-      <h2>Solicite sua proposta</h2>
-      <form id="contactForm" name="solicitar-proposta" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/obrigado.html" class="form">
-        
-        <input type="hidden" name="form-name" value="solicitar-proposta" />
-        <p class="hidden">
-          <label>Não preencha: <input name="bot-field" /></label>
-        </p>
-<div class="form-row">
-          <div class="form-field">
-            <label for="nome">Nome</label>
-            <input type="text" id="nome" name="nome" required placeholder="Seu nome">
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contato">Receber proposta</a>
+            <a
+              class="btn btn-secondary"
+              id="btnWhatsHero"
+              href="https://wa.me/5561996140478"
+              target="_blank"
+              rel="noopener"
+            >Falar no WhatsApp</a>
           </div>
-          <div class="form-field">
-            <label for="email">E-mail</label>
-            <input type="email" id="email" name="email" required placeholder="seuemail@exemplo.com">
-          </div>
-        </div>
 
-        <div class="form-row">
-          <div class="form-field">
-            <label for="telefone">WhatsApp</label>
-            <input type="tel" id="telefone" name="telefone" required placeholder="(DDD) 9XXXX-XXXX">
-          </div>
-          <div class="form-field">
-            <label for="perfil">Perfil</label>
-            <select id="perfil" name="perfil" required>
-              <option value="" disabled selected>Selecione</option>
-              <option value="Residencial">Residencial</option>
-              <option value="Comercial">Comercial</option>
-              <option value="Rural">Rural</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="form-field">
-            <label for="distribuidora">Distribuidora</label>
-            <select id="distribuidora" name="distribuidora" required>
-            <option value="COPEL">COPEL</option>
-          </select>
-          </div>
-          <div class="form-field">
-            <label for="valorFatura">Valor médio da fatura (R$)</label>
-            <input type="number" id="valorFatura" name="valorFatura" required placeholder="Ex.: 1200" min="0" step="0.01">
-          </div>
-        </div>
-    
-        <div class="checkbox-row">
-          <input type="checkbox" id="lgpd" name="lgpd" required>
-          <label for="lgpd" class="checkbox-label">
-            Concordo com o uso dos meus dados para contato e elaboração de proposta, conforme a
-            <a href="#privacidade">Política de Privacidade</a>.
-          </label>
-        </div>
-
-        <div class="form-actions">
-          <button type="submit" class="btn btn-primary">Receber proposta</button>
-          <a id="btnWhatsContato" href="https://wa.me/5561996140478" class="btn btn-outline" target="_blank" rel="noopener">Falar no WhatsApp</a>
-          <p id="contactResult" class="muted" aria-live="polite"></p>
-        </div>
-      </form>
-    </div>
-  </section>
-
- <section id="faq" class="section alt">
-    <div class="container">
-      <h2>Perguntas frequentes</h2>
-      <details>
-        <summary>Vocês vendem energia?</summary>
-        <p>Não. Prestamos <strong>serviços de gestão</strong> da participação no SCEE. A energia continua sendo fornecida pela distribuidora.</p>
-      </details>
-      <details>
-        <summary>Há garantia de economia mínima?</summary>
-        <p>Não. A operação segue regras do SCEE, geração disponível e fatura oficial. Nossa atuação é de <strong>meio</strong>, sem garantia de resultado.</p>
-      </details>
-      <details>
-        <summary>Como é calculado o success fee?</summary>
-        <p>Aplicamos o percentual escolhido sobre a <strong>Economia Financeira</strong> apurada: <em>Economia = VRSC – VEF</em> (quando positiva), com base na fatura do ciclo.</p>
-      </details>
-    </div>
-  </section>
-
-  <section id="privacidade" class="section alt">
-    <div class="container">
-      <h2>Privacidade e termos</h2>
-      <p class="muted">
-        Utilizamos os dados informados (nome, e-mail, WhatsApp, perfil, distribuidora e valor médio de fatura) exclusivamente para contato e elaboração de proposta.
-        Não compartilhamos seus dados com terceiros para fins de marketing. Você pode solicitar a atualização ou exclusão dos seus dados a qualquer momento pelo e-mail
-        <strong>contato@elysolarhub.com.br</strong>.
-      </p>
-    </div>
-  </section>
-
-<footer class="footer">
-    <div class="container">
-      <div class="grid-3">
-        <div>
-          <img src="assets/logo.svg" alt="Ely SolarHub" class="logo">
-          <p>
-            📄 <strong>CNPJ:</strong> 64.072.577/0001-91<br>
-            🌐 <strong>Domínio:</strong> elysolarhub.com.br<br>
-            📧 <strong>E-mail:</strong>  
-            <a href="mailto:contato@elysolarhub.com.br">contato@elysolarhub.com.br</a><br>
-            📱 <strong>WhatsApp:</strong>
-            <a href="https://wa.me/5561996140478" target="_blank">(61) 99614-0478</a><br>
-            📸 <strong>Instagram:</strong>
-            <a href="https://www.instagram.com/elysolarhub" target="_blank">@elysolarhub</a>
+          <p class="note muted">
+            ⚠️ Aviso importante: não vendemos energia e não garantimos economia. Qualquer estimativa é ilustrativa e depende
+            de regras do SCEE, perfil de consumo, tarifas, compensações, disponibilidade de créditos e validações da distribuidora.
           </p>
         </div>
-        <div>
-          <h4>Links</h4>
-          <ul class="flat">
-            <li><a href="#como-funciona">Como funciona</a></li>
-            <li><a href="#remuneracao">Remuneração</a></li>
-            <li><a href="#legal">Base legal</a></li>
-            <li><a href="#faq">FAQ</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Transparência</h4>
-          <p>Modelo de prestação de serviços de gestão regulatória e operacional. Não comercializamos energia elétrica.</p>
+
+        <div class="hero-card">
+          <div class="card">
+            <h3>O que você recebe</h3>
+            <ul class="checklist">
+              <li>Onboarding documental e conferência de elegibilidade</li>
+              <li>Gestão da participação e acompanhamento do ciclo de créditos</li>
+              <li>Transparência na apuração (critérios e evidências)</li>
+              <li>Suporte e comunicação com o cliente durante a vigência</li>
+            </ul>
+
+            <div class="mini-legal muted">
+              Serviço prestado em regime de <strong>obrigação de meio</strong>, sem promessa de resultado.
+            </div>
+          </div>
         </div>
       </div>
-      <p class="muted center">© <span id="year"></span> Ely SolarHub Ltda — Todos os direitos reservados.</p>
-    </div>
-  </footer>
+    </section>
 
-  <a href="https://wa.me/5561996140478" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">WhatsApp</a>
+    <!-- Quem somos -->
+    <section id="quem-somos" class="section">
+      <div class="container">
+        <h2>Quem somos</h2>
 
+        <p>
+          A <strong>Ely SolarHub</strong> é uma empresa focada em <strong>gestão</strong> e <strong>conformidade</strong> na
+          geração compartilhada (SCEE). Nosso papel é organizar o processo, orientar o cliente com linguagem simples e
+          cuidar do fluxo operacional e documental necessário para a participação no modelo, sempre respeitando as regras
+          aplicáveis e as particularidades de cada distribuidora.
+        </p>
+
+        <p>
+          Trabalhamos com uma visão prática: menos discurso e mais execução, com controles, registros e comunicação clara.
+          Quando falamos de energia, falamos de um ambiente regulado. Por isso, nossa prioridade é reduzir riscos de ruído,
+          expectativas irreais e promessas indevidas.
+        </p>
+
+        <div class="grid-3 cards">
+          <div class="card">
+            <h3>🎯 Missão</h3>
+            <p>
+              Gerir e conectar energia solar de forma inteligente, segura e sustentável, gerando economia real para os clientes
+              e valor duradouro para a sociedade.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>👁️ Visão</h3>
+            <p>
+              Ser referência nacional em gestão de energia solar compartilhada, reconhecida pela eficiência operacional,
+              conformidade regulatória e compromisso com a sustentabilidade.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>🧭 Valores</h3>
+            <ul class="flat">
+              <li>Sustentabilidade com responsabilidade</li>
+              <li>Transparência e conformidade regulatória</li>
+              <li>Eficiência e inteligência na gestão</li>
+              <li>Compromisso com o cliente</li>
+              <li>Inovação aplicada, não discurso vazio</li>
+              <li>Ética, simplicidade e longo prazo</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="callout muted">
+          <strong>Nota de conformidade:</strong> a adesão ao SCEE, o cadastro, o início de compensação e qualquer dinâmica de créditos
+          dependem de regras do setor e validações operacionais da distribuidora. Nossa atuação é de gestão, acompanhamento e suporte.
+        </div>
+      </div>
+    </section>
+
+    <!-- Como funciona -->
+    <section id="como-funciona" class="section alt">
+      <div class="container">
+        <h2>Como funciona</h2>
+
+        <div class="grid-3">
+          <div class="card">
+            <h3>1) Elegibilidade e dados</h3>
+            <p>
+              Coletamos informações essenciais (perfil, distribuidora, unidade consumidora e histórico) para verificar
+              aderência ao fluxo e às exigências aplicáveis.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>2) Onboarding documental</h3>
+            <p>
+              Organizamos a documentação, orientamos assinaturas, checklists e fluxos para viabilizar o cadastro e/ou a
+              movimentação necessária junto aos processos da distribuidora.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>3) Gestão e acompanhamento</h3>
+            <p>
+              Acompanhamos o ciclo de compensação e registramos evidências para a apuração prevista em contrato,
+              mantendo o cliente informado sobre eventos relevantes.
+            </p>
+          </div>
+        </div>
+
+        <details class="details">
+          <summary>O que a Ely SolarHub não faz</summary>
+          <div class="details-body">
+            <ul>
+              <li>Não comercializa energia (não atua como “venda” de energia ao consumidor).</li>
+              <li>Não garante economia, redução de tarifa ou resultado financeiro.</li>
+              <li>Não substitui decisões e prazos da distribuidora, nem regras do setor.</li>
+              <li>Não presta consultoria jurídica individualizada sem contratação específica.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- Remuneração -->
+    <section id="remuneracao" class="section">
+      <div class="container">
+        <h2>Remuneração</h2>
+
+        <p>
+          Nosso modelo de remuneração é baseado em <strong>success fee</strong>, calculado sobre a economia
+          <strong>efetivamente apurada</strong> na fatura, conforme metodologia e critérios definidos em contrato,
+          com transparência e rastreabilidade das bases utilizadas.
+        </p>
+
+        <div class="grid-3">
+          <div class="card">
+            <h3>Economia apurada</h3>
+            <p>
+              Considera os lançamentos e compensações identificáveis na fatura, observadas regras, tarifas e condições
+              do período de referência.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Sem promessa</h3>
+            <p>
+              Não existe garantia de economia. O desempenho depende de múltiplos fatores externos e variáveis do cliente
+              e do setor (tarifas, créditos, perfil e validações).
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Obrigações e limites</h3>
+            <p>
+              Prestação de serviço de gestão (obrigação de meio), com limites de responsabilidade, conforme contrato
+              firmado entre as partes.
+            </p>
+          </div>
+        </div>
+
+        <p class="muted note">
+          ✅ Transparência: você verá claramente o que foi considerado, o período, a base e o critério, conforme previsto em contrato.
+        </p>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section alt">
+      <div class="container">
+        <h2>Dúvidas comuns</h2>
+
+        <div class="faq">
+          <details class="details">
+            <summary>Isso é “compra” de energia?</summary>
+            <div class="details-body">
+              <p>
+                Não. A Ely SolarHub presta <strong>serviços de gestão</strong> relacionados à participação em geração compartilhada (SCEE).
+                O cliente continua sendo atendido pela distribuidora e sujeito às regras do setor.
+              </p>
+            </div>
+          </details>
+
+          <details class="details">
+            <summary>Vocês garantem economia?</summary>
+            <div class="details-body">
+              <p>
+                Não. Qualquer estimativa é <strong>ilustrativa</strong>. A economia depende de condições de consumo, tarifas,
+                regras de compensação, disponibilidade de créditos e validações da distribuidora.
+              </p>
+            </div>
+          </details>
+
+          <details class="details">
+            <summary>O que eu preciso enviar para receber proposta?</summary>
+            <div class="details-body">
+              <p>
+                Em geral: distribuidora, perfil (PF/PJ), faixa de consumo/valor de fatura e um canal de contato.
+                Se avançarmos, solicitamos documentos conforme checklist aplicável.
+              </p>
+            </div>
+          </details>
+
+          <details class="details">
+            <summary>Como vocês tratam meus dados (LGPD)?</summary>
+            <div class="details-body">
+              <p>
+                Usamos os dados estritamente para contato e elaboração de proposta, e para o que for necessário no fluxo
+                de onboarding quando houver contratação. Você pode solicitar atualização ou exclusão a qualquer momento.
+                Veja a seção <a href="#privacidade">Privacidade e termos</a>.
+              </p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contato / Form -->
+    <section id="contato" class="section">
+      <div class="container">
+        <h2>Receber proposta</h2>
+        <p class="muted">
+          Preencha os dados abaixo para contato. Não enviamos spam e não compartilhamos dados para marketing de terceiros.
+        </p>
+
+        <!-- Netlify Forms (se estiver usando Netlify) -->
+        <form
+          class="form"
+          name="lead"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          action="/obrigado.html"
+        >
+          <input type="hidden" name="form-name" value="lead" />
+          <p class="hidden">
+            <label>Não preencha isto: <input name="bot-field" /></label>
+          </p>
+
+          <div class="grid-2">
+            <div class="field">
+              <label for="nome">Nome</label>
+              <input id="nome" name="nome" type="text" autocomplete="name" required />
+            </div>
+
+            <div class="field">
+              <label for="email">E-mail</label>
+              <input id="email" name="email" type="email" autocomplete="email" required />
+            </div>
+
+            <div class="field">
+              <label for="whatsapp">WhatsApp</label>
+              <input id="whatsapp" name="whatsapp" type="tel" placeholder="(DDD) 9XXXX-XXXX" required />
+            </div>
+
+            <div class="field">
+              <label for="perfil">Perfil</label>
+              <select id="perfil" name="perfil" required>
+                <option value="" selected disabled>Selecione</option>
+                <option value="PF">Pessoa Física (PF)</option>
+                <option value="PJ">Pessoa Jurídica (PJ)</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="distribuidora">Distribuidora</label>
+              <input id="distribuidora" name="distribuidora" type="text" placeholder="Ex.: COPEL" required />
+            </div>
+
+            <div class="field">
+              <label for="fatura">Valor médio da fatura (R$)</label>
+              <input id="fatura" name="fatura" type="text" placeholder="Ex.: 1.250" required />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="mensagem">Observações (opcional)</label>
+            <textarea id="mensagem" name="mensagem" rows="4" placeholder="Ex.: melhor horário para contato, unidade(s), etc."></textarea>
+          </div>
+
+          <div class="field checkbox">
+            <input id="lgpd" name="lgpd" type="checkbox" required />
+            <label for="lgpd" class="checkbox-label">
+              Concordo com o uso dos meus dados para contato e elaboração de proposta, conforme a
+              <a href="#privacidade">Política de Privacidade</a>.
+            </label>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Receber proposta</button>
+
+            <a
+              id="btnWhatsContato"
+              class="btn btn-secondary"
+              href="https://wa.me/5561996140478"
+              target="_blank"
+              rel="noopener"
+            >Prefiro falar no WhatsApp</a>
+          </div>
+
+          <p class="note muted">
+            ⚠️ Importante: o envio deste formulário não constitui contratação. Qualquer contratação depende de análise,
+            documentação e assinatura de contrato.
+          </p>
+        </form>
+      </div>
+    </section>
+
+    <!-- Privacidade / Termos -->
+    <section id="privacidade" class="section alt">
+      <div class="container">
+        <h2>Privacidade e termos</h2>
+
+        <p class="muted">
+          Utilizamos os dados informados (nome, e-mail, WhatsApp, perfil, distribuidora e valor médio de fatura) exclusivamente
+          para contato, elaboração de proposta e, quando aplicável, para viabilizar o fluxo de onboarding ligado à prestação do serviço.
+          Não compartilhamos seus dados com terceiros para fins de marketing.
+          Você pode solicitar atualização ou exclusão dos seus dados a qualquer momento pelo e-mail
+          <strong>contato@elysolarhub.com.br</strong>.
+        </p>
+
+        <details class="details">
+          <summary>Avisos regulatórios e de responsabilidade</summary>
+          <div class="details-body">
+            <ul>
+              <li>Atuação restrita à prestação de <strong>serviços de gestão</strong> relacionados ao SCEE.</li>
+              <li>Não há promessa de economia, redução de tarifa ou resultado financeiro.</li>
+              <li>Estimativas, quando existirem, são <strong>ilustrativas</strong> e dependem de variáveis externas e do cliente.</li>
+              <li>Cadastros, prazos, validações e efetivações dependem de regras e processos da distribuidora e do setor.</li>
+              <li>Relação contratual com limites e condições, conforme instrumento firmado entre as partes.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="grid-3">
+          <div>
+            <img src="assets/logo.svg" alt="Ely SolarHub" class="logo" />
+            <p>
+              📄 <strong>CNPJ:</strong> 64.072.577/0001-91<br />
+              🌐 <strong>Domínio:</strong> elysolarhub.com.br<br />
+              📧 <strong>E-mail:</strong>
+              <a href="mailto:contato@elysolarhub.com.br">contato@elysolarhub.com.br</a><br />
+              📱 <strong>WhatsApp:</strong>
+              <a href="https://wa.me/5561996140478" target="_blank" rel="noopener">(61) 99614-0478</a><br />
+              📸 <strong>Instagram:</strong>
+              <a href="https://www.instagram.com/elysolarhub" target="_blank" rel="noopener">@elysolarhub</a>
+            </p>
+          </div>
+
+          <div>
+            <h4>Links</h4>
+            <ul class="flat">
+              <li><a href="#quem-somos">Quem somos</a></li>
+              <li><a href="#como-funciona">Como funciona</a></li>
+              <li><a href="#remuneracao">Remuneração</a></li>
+              <li><a href="#faq">Dúvidas</a></li>
+              <li><a href="#contato">Receber proposta</a></li>
+              <li><a href="#privacidade">Privacidade e termos</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4>Transparência</h4>
+            <p class="muted">
+              Ely SolarHub Ltda presta serviços de gestão relacionados à participação em geração compartilhada (SCEE),
+              com comunicação clara e conformidade. Não comercializamos energia e não garantimos resultado.
+            </p>
+          </div>
+        </div>
+
+        <div class="footer-bottom muted">
+          <span>© <span id="ano"></span> Ely SolarHub Ltda. Todos os direitos reservados.</span>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Troque para o caminho real do seu JS (ex.: assets/script.js) -->
   <script src="assets/script.js"></script>
+  <script>
+    // Ano automático (fallback, caso seu assets/script.js não tenha isso)
+    (function () {
+      var el = document.getElementById("ano");
+      if (el) el.textContent = String(new Date().getFullYear());
+    })();
+  </script>
 </body>
 </html>
