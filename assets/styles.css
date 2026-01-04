@@ -112,3 +112,11 @@ label{font-size:.9rem;color:var(--muted)}
   margin-top: 14px;
 }
 
+/* Justificar texto do Hero (coluna esquerda) */
+.hero-text p{
+  text-align: justify;
+  text-align-last: left;     /* evita última linha esticada */
+  text-justify: inter-word;
+  hyphens: auto;             /* melhora justificação em PT-BR */
+}
+
