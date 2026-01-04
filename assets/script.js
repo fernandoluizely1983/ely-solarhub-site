@@ -15,14 +15,17 @@ function brl(v) {
 if (quickForm && resultado) {
   quickForm.addEventListener('submit', (e) => {
     e.preventDefault();
+    resultado.textContent = '';
 
-    const kwh = Number(document.getElementById('consumo')?.value || 0);
-    const perc = Number(document.getElementById('percentual')?.value || 0);
-
-    if (!kwh || !perc) {
-      resultado.textContent = 'Preencha consumo e percentual de desconto.';
+    // usa validação HTML5 (required, min, max)
+    if (!quickForm.checkValidity()) {
+      quickForm.reportValidity();
+      resultado.textContent = 'Preencha os campos para calcular a estimativa.';
       return;
     }
+
+    const kwh = Number(document.getElementById('consumo')?.value);
+    const perc = Number(document.getElementById('percentual')?.value);
 
     const percDesconto = perc / 100;
 
