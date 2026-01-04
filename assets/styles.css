@@ -91,26 +91,6 @@ label{font-size:.9rem;color:var(--muted)}
 
 .hidden{display:none;}
 
-/* Quem somos (texto em coluna única + MVV em 3 colunas) */
-.about-text{
-  max-width: 100%;            /* garante que o texto use a mesma largura do container */
-}
-
-.about-text p{
-  text-align: justify;
-  text-justify: inter-word;
-  hyphens: auto;              /* melhora a justificação no PT-BR */
-}
-
-/* espaço maior entre o texto e os quadrantes (Missão/Visão/Valores) */
-.mvv{
-  margin-top: 76px;           /* ~2cm de respiro (ajuste fino se quiser) */
-}
-
-.mvv .card h3{
-  margin-top: 0;
-}
-
 /* =========================
    Quem somos (ajustes finos)
 ========================= */
