@@ -90,3 +90,22 @@ label{font-size:.9rem;color:var(--muted)}
 
 
 .hidden{display:none;}
+
+/* Quem somos (texto em coluna única + MVV em 3 colunas) */
+.about-text{
+  max-width: 980px; /* controla linha para não ficar longa demais */
+}
+
+.about-text p{
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.mvv{
+  margin-top: 18px;
+}
+
+.mvv .card h3{
+  margin-top: 0;
+}
+
