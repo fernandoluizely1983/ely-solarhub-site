@@ -120,3 +120,11 @@ label{font-size:.9rem;color:var(--muted)}
   hyphens: auto;             /* melhora justificação em PT-BR */
 }
 
+/* FAQ – justificar texto das respostas */
+#faq details p{
+  text-align: justify;
+  text-align-last: left;
+  text-justify: inter-word;
+  hyphens: auto;
+}
+
