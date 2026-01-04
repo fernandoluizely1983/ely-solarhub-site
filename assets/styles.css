@@ -149,3 +149,12 @@ label{font-size:.9rem;color:var(--muted)}
 .footer .footer-info{
   margin: 10px 0 0;
 }
+
+
+/* Privacidade e termos – justificar o texto */
+#privacidade p{
+  text-align: justify;
+  text-align-last: left;
+  text-justify: inter-word;
+  hyphens: auto;
+}
