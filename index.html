@@ -45,15 +45,34 @@
       <div class="hero-art">
         <div class="card">
           <h3>Estimativa ilustrativa</h3>
-          <form id="quickForm" class="form-grid" novalidate>
-            <label for="consumo">Consumo médio (kWh/mês)</label>
-            <input type="number" id="consumo" name="consumo" placeholder="Ex.: 350" value="350" min="50" required>
-            <label for="percentual">Percentual de Desconto (%)</label>
-            <input type="number" id="percentual" name="percentual" placeholder="Ex.: 20" value="20" min="1" max="100" required>
-            <button type="submit" class="btn btn-primary">Calcular</button>
-            <p id="resultado" class="muted" aria-live="polite"></p>
-            <p class="muted">*Valores ilustrativos. Simulação não é garantia de desconto, somente uma projeção.</p>
-          </form>
+          <form id="quickForm" class="form-grid">
+  <label for="consumo">Consumo médio (kWh/mês)</label>
+  <input
+    type="number"
+    id="consumo"
+    name="consumo"
+    placeholder="Ex.: 350"
+    min="50"
+    required
+  >
+
+  <label for="percentual">Percentual de Desconto (%)</label>
+  <input
+    type="number"
+    id="percentual"
+    name="percentual"
+    placeholder="Ex.: 20"
+    min="1"
+    max="100"
+    required
+  >
+
+  <button type="submit" class="btn btn-primary">Calcular</button>
+
+  <p id="resultado" class="muted" aria-live="polite"></p>
+  <p class="muted">*Valores ilustrativos. Simulação não é garantia de desconto, somente uma projeção.</p>
+</form>
+         
         </div>
       </div>
     </div>
