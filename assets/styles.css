@@ -158,3 +158,12 @@ label{font-size:.9rem;color:var(--muted)}
   text-justify: inter-word;
   hyphens: auto;
 }
+
+/* Base legal – justificar texto */
+#legal p{
+  text-align: justify;
+  text-align-last: left;
+  text-justify: inter-word;
+  hyphens: auto;
+}
+
