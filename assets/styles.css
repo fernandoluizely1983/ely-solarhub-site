@@ -185,8 +185,8 @@ label{font-size:.9rem;color:var(--muted)}
 }
 
 .logo-item {
-  max-height: 120px;   /* antes: 80px */
-  max-width: 330px;    /* antes: 220px */
+  max-height: 240px;   /* antes: 80px */
+  max-width: 660px;    /* antes: 220px */
   object-fit: contain;
   opacity: 1;
 }
