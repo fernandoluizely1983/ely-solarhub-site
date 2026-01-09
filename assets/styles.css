@@ -188,13 +188,7 @@ label{font-size:.9rem;color:var(--muted)}
   max-height: 80px;
   max-width: 220px;
   object-fit: contain;
-  filter: grayscale(100%);
-  opacity: 0.85;
-  transition: all 0.2s ease;
-}
-
-.logo-item:hover {
-  filter: grayscale(0%);
   opacity: 1;
 }
+
 
